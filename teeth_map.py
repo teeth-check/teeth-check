@@ -36,7 +36,46 @@ for i in hos_url:
     
 len(hos_df)
 hos_df
+
+hos_df.to_csv('c:/data/teamproject/hospital.csv',encoding="utf-8-sig")
+hos_df.info()   
+
+# 평점 -> 숫자 변환
+hos_df.point = hos_df.point.astype('float')
+
+# 평점 8점이상 & 서울 소재 치과
+hos_sort = hos_df.loc[(hos_df['point']>=8.0) & (hos_df.addr.str.startswith('서울')),].sort_values(by='point',ascending=False)
+
+hos_sort.to_csv('c:/data/teamproject/hos_sort.csv',encoding="utf-8-sig")
+
+hos_final = pd.read_csv('c:/data/teamproject/hos_final.csv',encoding='cp949')
+
+hos_final.to_csv('c:/data/teamproject/hos_final_final.csv',encoding="utf-8-sig")
+
+del hos_final['_']
+
+hos_final.X
+
+
+goo = pd.read_csv('c:/data/teamproject/구정보.csv',encoding='cp949')
+
+
+import folium
+
+
+for i in goo.index:
+    m = folium.Map(location = [goo.Y[i] , goo.X[i]], zoom_start=15)
     
+    for j in hos_final.index:
+        folium.CircleMarker([hos_final['Y'][j],hos_final['X'][j]],
+                            radius=5,
+                            color='blue',
+                            fill='True',
+                            popup=hos_final['name'][j],
+                            tooltip=hos_final['point'][j]).add_to(m)
+    
+    m.save('c:/data/teamproject/'+goo['구'][i]+'map.html')
+
 
 
 
