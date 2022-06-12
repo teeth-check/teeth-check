@@ -138,6 +138,26 @@ model_cnn224.summary()
 
 <img width="528" alt="graph_비교" src="https://user-images.githubusercontent.com/104886103/173191418-afb6fb72-1a43-41a5-b2b1-4dd05467dbe2.PNG">
 
+__최적 모델 선택 : input_size(128,128)__
+
+-------------------------
+
+#### 4. 지도 시각화
+
+* 모두닥 (병원 후기 공유 사이트)
+
+<img width="608" alt="모두닥1" src="https://user-images.githubusercontent.com/104886103/173220520-7bc211b6-e425-4873-8eb2-0befc8769114.PNG">
+
+<img width="384" alt="모두닥2" src="https://user-images.githubusercontent.com/104886103/173220521-9b2c1fd6-dd90-421a-ab73-59708aedcefd.PNG">
+
+__충치 치료 검색 -> 치과정보(이름, 평점, 주소) 수집 (총 483개)__  
+
+#
+
+* Folium 지도시각화
+
+<img width="838" alt="지도-강남" src="https://user-images.githubusercontent.com/104886103/173217653-11db6a7f-3e67-4ca1-ba45-7b34dd9764d7.PNG">
+
 
 
 ㆍ 분석용 데이터 : 치아 이미지 데이터셋, 리뷰 평점 8.0 이상 치과의 주소 정보 데이터셋
@@ -151,7 +171,7 @@ model_cnn224.summary()
 ㆍ 치과 위치 정보(위도, 경도) 변환 및 folium 지도시각화
 
 
-#### 4. 지도 시각화
+
 
 ㆍ 설계 구현
 
